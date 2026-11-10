@@ -1,0 +1,219 @@
+#!name=增强去广告 | App开屏·视频广告·网页
+#!desc=国内外广告网络、常见App开屏/视频素材与浏览器网页广告；保守精准拦截，不含远程脚本。
+#!author=Custom curated public rules (2026-11-10)
+#!category=广告拦截
+#!system=ios
+#!date=2026-11-10
+# 注意：此为本地独立模块；不保证消除所有App视频广告、缓存广告及同域名插播广告。
+# 启用：Shadowrocket -> 配置 -> 模块 -> 导入并开启；全局路由选择“配置”。
+# HTTPS URL Rewrite 需开启 HTTPS 解密并信任自己设备生成的CA；只解密下方列出的域名。
+# 不提供远程脚本，不修改VIP、付费或授权状态；可能需要清除App已缓存的开屏素材。
+# 若遇到异常，先关闭模块测试。不要同时加载大量重复的去广告模块。
+# 规则线索：letswish/Shadowrocket-Module, memoryttt/shadowrocket-adblock,
+# akiralereal/shadowrocket-toolkit (GitHub); 已取保守子集并重新分类。
+
+[Rule]
+# ---- 通用国际网页广告与广告SDK ----
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
+DOMAIN-SUFFIX,adservice.google.com,REJECT
+DOMAIN-SUFFIX,adnxs.com,REJECT
+DOMAIN-SUFFIX,adsrvr.org,REJECT
+DOMAIN-SUFFIX,criteo.com,REJECT
+DOMAIN-SUFFIX,criteo.net,REJECT
+DOMAIN-SUFFIX,pubmatic.com,REJECT
+DOMAIN-SUFFIX,rubiconproject.com,REJECT
+DOMAIN-SUFFIX,openx.net,REJECT
+DOMAIN-SUFFIX,smartadserver.com,REJECT
+DOMAIN-SUFFIX,casalemedia.com,REJECT
+DOMAIN-SUFFIX,contextweb.com,REJECT
+DOMAIN-SUFFIX,taboola.com,REJECT
+DOMAIN-SUFFIX,outbrain.com,REJECT
+DOMAIN-SUFFIX,revcontent.com,REJECT
+DOMAIN-SUFFIX,mgid.com,REJECT
+DOMAIN-SUFFIX,sharethrough.com,REJECT
+DOMAIN-SUFFIX,indexww.com,REJECT
+DOMAIN-SUFFIX,adform.net,REJECT
+DOMAIN-SUFFIX,amazon-adsystem.com,REJECT
+DOMAIN-SUFFIX,media.net,REJECT
+DOMAIN-SUFFIX,zedo.com,REJECT
+DOMAIN-SUFFIX,adcolony.com,REJECT
+DOMAIN-SUFFIX,applovin.com,REJECT
+DOMAIN-SUFFIX,unityads.unity3d.com,REJECT
+DOMAIN-SUFFIX,chartboost.com,REJECT
+DOMAIN-SUFFIX,vungle.com,REJECT
+DOMAIN-SUFFIX,inmobi.com,REJECT
+DOMAIN-SUFFIX,ironsrc.com,REJECT
+DOMAIN-SUFFIX,fyber.com,REJECT
+DOMAIN-SUFFIX,mopub.com,REJECT
+DOMAIN-SUFFIX,smaato.net,REJECT
+DOMAIN-SUFFIX,liftoff.io,REJECT
+DOMAIN-SUFFIX,admob.com,REJECT
+DOMAIN-SUFFIX,ads-twitter.com,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,ads.pinterest.com,REJECT
+DOMAIN,ads-api.tiktok.com,REJECT
+DOMAIN,ads-sg.tiktok.com,REJECT
+DOMAIN,ads-jp.tiktok.com,REJECT
+DOMAIN,ads.tiktok.com,REJECT
+
+# ---- 国内通用广告网络与网页推广 ----
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,ad.qq.com,REJECT
+DOMAIN,mi.gdt.qq.com,REJECT
+DOMAIN,sdk.e.qq.com,REJECT
+DOMAIN,p.l.qq.com,REJECT
+DOMAIN,us.l.qq.com,REJECT
+DOMAIN,tangram.e.qq.com,REJECT
+DOMAIN-SUFFIX,adview.cn,REJECT
+DOMAIN-SUFFIX,adsmogo.com,REJECT
+DOMAIN-SUFFIX,admaster.com.cn,REJECT
+DOMAIN-SUFFIX,adchina.com,REJECT
+DOMAIN-SUFFIX,adwo.com,REJECT
+DOMAIN-SUFFIX,domob.cn,REJECT
+DOMAIN-SUFFIX,umeng.com,REJECT
+DOMAIN-SUFFIX,ad-scope.com,REJECT
+DOMAIN-SUFFIX,ad-scope.com.cn,REJECT
+DOMAIN-SUFFIX,adintl.cn,REJECT
+DOMAIN-SUFFIX,adsmoloco.com,REJECT
+DOMAIN-SUFFIX,adwangmai.com,REJECT
+DOMAIN-SUFFIX,vlion.cn,REJECT
+DOMAIN-SUFFIX,yfanads.com,REJECT
+DOMAIN-SUFFIX,ad.12306.cn,REJECT
+DOMAIN,ad.51wnl.com,REJECT
+DOMAIN,ad.api.3g.youku.com,REJECT
+DOMAIN,ad.cctv.com,REJECT
+DOMAIN,ad.qingting.fm,REJECT
+DOMAIN,ad-cdn.qingting.fm,REJECT
+DOMAIN,ad.maoyan.com,REJECT
+DOMAIN,ad.player.baidu.com,REJECT
+DOMAIN,ad.toutiao.com,REJECT
+DOMAIN,ad.zijieapi.com,REJECT
+DOMAIN,ad.partner.gifshow.com,REJECT
+DOMAIN,ad.ximalaya.com,REJECT
+DOMAIN,ads.service.kugou.com,REJECT
+DOMAIN,adserviceretry.kugou.com,REJECT
+DOMAIN,adsp.xunlei.com,REJECT
+DOMAIN,zeus.ad.xiaomi.com,REJECT
+DOMAIN,ad-sdk-config.youdao.com,REJECT
+
+# ---- 喜马拉雅 / 网易云 / QQ音乐 / 酷狗 等音频广告 ----
+DOMAIN,iadmat.nosdn.127.net,REJECT
+DOMAIN,iadmatapk.nosdn.127.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT
+DOMAIN,admusicpic.music.126.net,REJECT
+DOMAIN,ad.bn.netease.com,REJECT
+DOMAIN,ad.tencentmusic.com,REJECT
+DOMAIN,adcdn.tencentmusic.com,REJECT
+DOMAIN,adcdn6.tencentmusic.com,REJECT
+DOMAIN,adexpo.tencentmusic.com,REJECT
+DOMAIN,adclick.tencentmusic.com,REJECT
+DOMAIN,adstats.tencentmusic.com,REJECT
+DOMAIN,tmeadcomm.y.qq.com,REJECT
+DOMAIN,tmead.y.qq.com,REJECT
+DOMAIN,monitor.music.qq.com,REJECT
+DOMAIN,stat.y.qq.com,REJECT
+
+# ---- B站 / 视频类：仅广告专用域名，正常视频CDN不拦截 ----
+DOMAIN,cm.ad.bilibili.com,REJECT
+DOMAIN,cm.adcommon.bilibili.com,REJECT
+DOMAIN,cm.game.bilibili.com,REJECT
+DOMAIN,cm.track.biligame.bilibili.com,REJECT
+
+# ---- 小红书 / 微博 / 知乎 ----
+DOMAIN,ads-img-qc.xhscdn.com,REJECT
+DOMAIN,ads-img-al.xhscdn.com,REJECT
+DOMAIN,ads-video-qc.xhscdn.com,REJECT
+DOMAIN,ads-video-al.xhscdn.com,REJECT
+DOMAIN,t-ads.xiaohongshu.com,REJECT
+DOMAIN,bootpreload.uve.weibo.com,REJECT
+DOMAIN,datacollection.uve.weibo.com,REJECT
+DOMAIN,adimg.uve.weibo.com,REJECT
+DOMAIN,click.uve.weibo.com,REJECT
+DOMAIN,adstrategy.biz.weibo.com,REJECT
+DOMAIN,appcloud.zhihu.com,REJECT
+DOMAIN,appcloud2.in.zhihu.com,REJECT
+DOMAIN,sugar.zhihu.com,REJECT
+
+# ---- 高德地图 ----
+DOMAIN,optimus-ads.amap.com,REJECT
+DOMAIN,amap-aos-info-nogw.amap.com,REJECT
+DOMAIN,free-aos-cdn-image.amap.com,REJECT
+DOMAIN-SUFFIX,adiu.amap.com,REJECT
+
+# ---- 淘宝 / 闲鱼 / 京东 / 美团 / 拼多多 ----
+DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
+DOMAIN-SUFFIX,re.m.taobao.com,REJECT
+DOMAIN-SUFFIX,re.taobao.com,REJECT
+DOMAIN-SUFFIX,dsp.simba.taobao.com,REJECT
+DOMAIN-SUFFIX,mclick.simba.taobao.com,REJECT
+DOMAIN-SUFFIX,simba.m.taobao.com,REJECT
+DOMAIN-SUFFIX,stat.simba.taobao.com,REJECT
+DOMAIN,wgo.mmstat.com,REJECT
+DOMAIN,perf.m.jd.com,REJECT
+DOMAIN,mars.jd.com,REJECT
+DOMAIN,dsp-x.jd.com,REJECT
+DOMAIN,second-floor-pro.pf.jd.com,REJECT
+DOMAIN-SUFFIX,jzt.jd.com,REJECT
+DOMAIN-SUFFIX,img-x.jd.com,REJECT
+DOMAIN-SUFFIX,cm.jd.com,REJECT
+DOMAIN,flowplus.meituan.net,REJECT
+DOMAIN-SUFFIX,mads.meituan.com,REJECT
+DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
+DOMAIN,apm.pinduoduo.com,REJECT
+DOMAIN,ta-a.pinduoduo.com,REJECT
+DOMAIN,ta.pinduoduo.com,REJECT
+DOMAIN,th-a.pinduoduo.com,REJECT
+DOMAIN,th-b.pinduoduo.com,REJECT
+DOMAIN,th.pinduoduo.com,REJECT
+
+# ---- 运营商 / 资讯 / 导购 ----
+DOMAIN-SUFFIX,ad.10010.com,REJECT
+DOMAIN,analytics-api.smzdm.com,REJECT
+DOMAIN,adx-api.zdmimg.com,REJECT
+
+[URL Rewrite]
+# ---- 开屏广告接口，包含静态图片和视频开屏配置 ----
+# 网易云：精确媒体素材主机由上面的Rule拦截
+# QQ音乐：启动图素材 + 广告接口
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
+^https?:\/\/music\.y\.qq\.com\/maproxy\/getPbCompressAd - reject-dict
+# 高德开屏
+^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt - reject-dict
+^https?:\/\/m\d\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? - reject-dict
+# B站开屏素材/广告接口
+^https?:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH - reject
+^https?:\/\/api\.bilibili\.com\/x\/mengqi\/v\d\/resource\? - reject-dict
+# 微博开屏与广告接口
+^https?:\/\/bootpreload\.uve\.weibo\.com\/v1\/ad\/preload - reject-dict
+^https?:\/\/api\.weibo\.cn\/2\/ad\/ - reject-dict
+# 知乎开屏
+^https?:\/\/api\.zhihu\.com\/commercial_api\/(?:banners_v\d\/app_topstory_banner|launch_v|real_time_launch_v) - reject-dict
+^https?:\/\/api\.zhihu\.com\/ad(?:\/|\?) - reject-dict
+# 小红书专用推广接口
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/ads\/resource - reject-dict
+^https?:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? - reject-dict
+# 淘宝和闲鱼推广、开屏
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv - reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get - reject-dict
+^https?:\/\/(?:g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash - reject-dict
+^https?:\/\/(?:g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.live\.home\.ads\.material\.get - reject-dict
+# 京东推广接口
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?:xview2Config|queryMaterialAdverts|apollo_style) - reject-200
+# 美团广告图，仅精确素材子目录
+^https?:\/\/img\.meituan\.net\/bizad - reject-img
+^https?:\/\/img\.meituan\.net\/adunion\/ - reject-img
+# 拼多多开屏/弹窗
+^https?:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/(?:aquarius\/hungary\/global\/app_popup|flow\/hungary\/window\/global) - reject-dict
+# 中国移动 / 联通开屏
+^https?:\/\/(?:client\.)?app(?:\.coc)?\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject-dict
+^https?:\/\/m\.client\.10010\.com\/mobileService\/(?:activity|customer)\/(?:get_client_adv|get_startadv) - reject-dict
+# 网页广告：依靠广告域名拦截；不修改普通网页JS/CSS
+
+[MITM]
+# 必须%APPEND%，避免覆盖现有模块的hostname
+hostname = %APPEND% y.gtimg.cn, music.y.qq.com, amap-aos-info-nogw.amap.com, m*.amap.com, upos-sz-static.bilivideo.com, api.bilibili.com, bootpreload.uve.weibo.com, api.weibo.cn, api.zhihu.com, www.xiaohongshu.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, api.m.jd.com, img.meituan.net, api.pinduoduo.com, api.yangkeduo.com, app.10086.cn, client.app.10086.cn, app.coc.10086.cn, client.app.coc.10086.cn, m.client.10010.com
