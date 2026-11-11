@@ -182,9 +182,9 @@ DOMAIN,adx-api.zdmimg.com,REJECT
 # ---- 开屏广告接口，包含静态图片和视频开屏配置 ----
 # 网易云：精确媒体素材主机由上面的Rule拦截
 # 开屏广告接口（部分版本的 api / eapi / xeapi）
-^https?:\\/\\/(?:ipv4|interface[0-9]?)\\.music\\.163\\.com\\/(?:api|eapi|xeapi)\\/ad(?:[\\/?]|$) - reject-dict
+^https?:\/\/(?:ipv4|interface[0-9]?)\.music\.163\.com\/(?:api|eapi|xeapi)\/ad(?:[\/?]|$) - reject-dict
 # 启动时的 VIP 促销弹窗，非会员鉴权
-^https?:\\/\\/(?:ipv4|interface[0-9]?)\\.music\\.163\\.com\\/(?:api|eapi)\\/sp\\/flow\\/popup\\/query(?:[\\/?]|$) - reject-200
+^https?:\/\/(?:ipv4|interface[0-9]?)\.music\.163\.com\/(?:api|eapi)\/sp\/flow\/popup\/query(?:[\/?]|$) - reject-200
 # 若仍出现黑胶 SVIP 启动动画，可能是会员自定义启动图或应用缓存，不能仅凭截图认定以上接口命中
 # QQ音乐：启动图素材 + 广告接口
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
