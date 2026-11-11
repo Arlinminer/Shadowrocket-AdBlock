@@ -1,0 +1,32 @@
+#!name=喜马拉雅开屏广告拦截
+#!desc=针对喜马拉雅全屏开屏/视频开屏及摇一摇广告的广告接口与素材请求。仅网络层拦截，不保证清除已有缓存。
+#!author=Arlinminer / ChatGPT
+#!category=广告拦截
+#!system=ios
+#!date=2026-11-11
+
+# Ximalaya splash & video splash ad blocker
+# 规则来源参考: TG-Twilight/AWAvenue-Ads-Rule issue #109;
+# ddgksf2013/Rewrite Ximalaya; 公开规则可能随应用版本失效。
+# 不拦截 xmcdn.com / ximalaya.com 整站，否则会导致音频无法播放。
+# 优先按域名 REJECT 广告投放接口（无需 HTTPS 解密）。
+# URL Rewrite 是补充；需要开启 HTTPS 解密并信任自己生成的证书。
+# 已缓存的开屏广告可能继续展示，需测试冷启动与缓存情况。
+
+[Rule]
+DOMAIN,adse.ximalaya.com,REJECT
+DOMAIN,adse.wsa.ximalaya.com,REJECT
+DOMAIN,adse.test.ximalaya.com,REJECT
+DOMAIN,adsebs.ximalaya.com,REJECT
+DOMAIN,adbehavior.ximalaya.com,REJECT
+DOMAIN,xdcs-collector.ximalaya.com,REJECT
+DOMAIN,ad.ximalaya.com,REJECT
+
+[URL Rewrite]
+# 部分版本使用 adRealTime 作为广告投放接口
+^https?:\/\/[^\/]+\.ximalaya\.com\/api\/v[0-9]+\/adRealTime(?:[\/?]|$) - reject-200
+# 仅屏蔽特定 GIF 广告素材路径，避免误拦截音频 CDN
+^https?:\/\/[^\/]+\.xmcdn\.com\/[A-Za-z0-9]{8}\/[A-Za-z0-9]{4}-[A-Za-z0-9]{16}\/[^?]+\.gif(?:\?.*)?$ - reject-img
+
+[MITM]
+hostname = %APPEND% *.ximalaya.com, *.xmcdn.com
