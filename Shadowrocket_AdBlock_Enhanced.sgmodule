@@ -3,7 +3,7 @@
 #!author=Custom curated public rules (2026-11-10)
 #!category=广告拦截
 #!system=ios
-#!date=2026-11-10
+#!date=2026-11-11
 # 注意：此为本地独立模块；不保证消除所有App视频广告、缓存广告及同域名插播广告。
 # 启用：Shadowrocket -> 配置 -> 模块 -> 导入并开启；全局路由选择“配置”。
 # HTTPS URL Rewrite 需开启 HTTPS 解密并信任自己设备生成的CA；只解密下方列出的域名。
@@ -106,6 +106,9 @@ DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,ad.bn.netease.com,REJECT
+DOMAIN,iad.g.163.com,REJECT
+# 网易云开屏图片/动图/视频专用素材域名已在上方列出
+# 不拦截 music.163.com 主域名，以免影响音乐播放和会员功能
 DOMAIN,ad.tencentmusic.com,REJECT
 DOMAIN,adcdn.tencentmusic.com,REJECT
 DOMAIN,adcdn6.tencentmusic.com,REJECT
@@ -178,6 +181,11 @@ DOMAIN,adx-api.zdmimg.com,REJECT
 [URL Rewrite]
 # ---- 开屏广告接口，包含静态图片和视频开屏配置 ----
 # 网易云：精确媒体素材主机由上面的Rule拦截
+# 开屏广告接口（部分版本的 api / eapi / xeapi）
+^https?:\\/\\/(?:ipv4|interface[0-9]?)\\.music\\.163\\.com\\/(?:api|eapi|xeapi)\\/ad(?:[\\/?]|$) - reject-dict
+# 启动时的 VIP 促销弹窗，非会员鉴权
+^https?:\\/\\/(?:ipv4|interface[0-9]?)\\.music\\.163\\.com\\/(?:api|eapi)\\/sp\\/flow\\/popup\\/query(?:[\\/?]|$) - reject-200
+# 若仍出现黑胶 SVIP 启动动画，可能是会员自定义启动图或应用缓存，不能仅凭截图认定以上接口命中
 # QQ音乐：启动图素材 + 广告接口
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/music\.y\.qq\.com\/maproxy\/getPbCompressAd - reject-dict
@@ -216,4 +224,4 @@ DOMAIN,adx-api.zdmimg.com,REJECT
 
 [MITM]
 # 必须%APPEND%，避免覆盖现有模块的hostname
-hostname = %APPEND% y.gtimg.cn, music.y.qq.com, amap-aos-info-nogw.amap.com, m*.amap.com, upos-sz-static.bilivideo.com, api.bilibili.com, bootpreload.uve.weibo.com, api.weibo.cn, api.zhihu.com, www.xiaohongshu.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, api.m.jd.com, img.meituan.net, api.pinduoduo.com, api.yangkeduo.com, app.10086.cn, client.app.10086.cn, app.coc.10086.cn, client.app.coc.10086.cn, m.client.10010.com
+hostname = %APPEND% ipv4.music.163.com, interface.music.163.com, interface1.music.163.com, interface2.music.163.com, interface3.music.163.com, interface9.music.163.com, y.gtimg.cn, music.y.qq.com, amap-aos-info-nogw.amap.com, m*.amap.com, upos-sz-static.bilivideo.com, api.bilibili.com, bootpreload.uve.weibo.com, api.weibo.cn, api.zhihu.com, www.xiaohongshu.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, api.m.jd.com, img.meituan.net, api.pinduoduo.com, api.yangkeduo.com, app.10086.cn, client.app.10086.cn, app.coc.10086.cn, client.app.coc.10086.cn, m.client.10010.com
