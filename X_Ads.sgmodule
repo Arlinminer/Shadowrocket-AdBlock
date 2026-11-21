@@ -10,7 +10,7 @@
 # 配套脚本仅对内存中的响应 JSON 做过滤，不收集或上传个人信息。
 
 [Script]
-x.home.promoted = type=http-response,pattern=^https:\/\/(?:api\.x\.com|api\.twitter\.com|x\.com|twitter\.com)\/i\/api\/graphql\/[^\/]+\/(?:HomeTimeline|HomeLatestTimeline|HomeMixerTimeline|HomeTimelineV2|SearchTimeline)(?:\?.*)?$,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/Arlinminer/Shadowrocket-AdBlock/main/scripts/X_Promoted_Filter.js
+x.home.promoted = type=http-response,pattern=^https:\/\/(?:api\.x\.com|api\.twitter\.com|x\.com|twitter\.com)\/(?:i\/api\/)?graphql\/[^\/]+\/(?:HomeTimeline|HomeLatestTimeline|HomeMixerTimeline|HomeTimelineV2|SearchTimeline)(?:\?.*)?$,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/Arlinminer/Shadowrocket-AdBlock/main/scripts/X_Promoted_Filter.js
 
 [MITM]
 hostname = %APPEND% api.x.com, api.twitter.com, x.com, twitter.com
