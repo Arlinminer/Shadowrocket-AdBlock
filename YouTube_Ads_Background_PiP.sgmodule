@@ -1,5 +1,5 @@
-#!name=YouTube 精简去广告·后台播放
-#!desc=YouTube / YouTube Music 去广告、后台播放及画中画（基于 Maasea 脚本）
+#!name=YouTube
+#!desc=广告过滤与后台播放
 #!author=Arlinminer; upstream: Maasea
 #!date=2026-11-21
 # 禁用其他 YouTube 增强模块，避免脚本冲突。
