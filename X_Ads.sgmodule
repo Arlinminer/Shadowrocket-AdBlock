@@ -1,16 +1,7 @@
 #!name=X
-#!desc=过滤推荐页推广广告
+#!desc=推荐页广告过滤（安全停用，待适配）
 #!author=Arlinminer
 #!date=2026-11-21
-# 过滤 X（原 Twitter）为你推荐时间线中的推广推文
-# 仅处理 GraphQL JSON 响应，保留正常推文、回复和分页游标。
-# iOS 客户端可能使用非 JSON 接口或证书固定，无法保证全部广告被去除。
-# 需启用 Shadowrocket HTTPS 解密并信任证书；主配置可继续使用 Johnshall。
-# 如 X 无法刷新内容，立即关闭本模块排查。
-# 配套脚本仅对内存中的响应 JSON 做过滤，不收集或上传个人信息。
-
-[Script]
-x.home.promoted = type=http-response,pattern=^https:\/\/(?:api\.x\.com|api\.twitter\.com|x\.com|twitter\.com)\/(?:i\/api\/)?graphql\/[^\/]+\/(?:HomeTimeline|HomeLatestTimeline|HomeMixerTimeline|HomeTimelineV2|SearchTimeline)(?:\?.*)?$,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/Arlinminer/Shadowrocket-AdBlock/main/scripts/X_Promoted_Filter.js
-
-[MITM]
-hostname = %APPEND% api.x.com, api.twitter.com, x.com, twitter.com
+# 安全版本：已禁用可能造成 X 首页帖子无法加载的响应修改脚本。
+# 目前本模块不执行广告过滤。请不要依赖其去除推广卡片。
+# 原因待结合 Shadowrocket 请求日志定位；不要直接拦截整个 GraphQL 首页接口。
